@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EST Project</title>
+    <link rel="stylesheet" href="graph.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@1.1"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>*{font-family: "Montserrat", sans-serif;}</style>
+</head>
+<body class="flex">
+    <div id="graph" class="w-3/4 h-screen flex justify-center items-center p-10">
+        <canvas id="myChart" class="border-2 border-slate-700 h-0 w-0"></canvas>
+    </div>
+    <div id="control-div" class="w-1/4 h-screen border-l-2 border-slate-500">
+        <div class=" flex justify-between p-4 pl-5 text-start font-semibold bg-violet-700 text-white text-2xl content-center">
+            <p onclick="location.href='/index.html'" class="hover:scale-110 transition ease-in-out cursor-pointer">SlideWatch</p>
+            <butoon onclick="location.href='/index.html'" class="btn bg-white text-violet-700 py-1 px-2 rounded-md text-base cursor-pointer transition ease-in-out hover:scale-110">Home</button>
+        </div>
+        <div class="p-5 flex flex-col gap-5">
+            <div class="flex gap-5 items-center ">
+                <label for="x-axis-select" class="text-lg">Choose X Axis:</label>
+                <select class="border-2 border-indigo-500 focus:outline-indigo-500 transition ease-in-out hover:scale-105 p-2 rounded-md font-semibold" name="x-axis-select" id="x-axis-select">
+                    <option class="x-axis-options font-sans" value="Trigger">Trigger</option>
+                    <option class="x-axis-options font-sans" value="State">State</option>
+                    <option class="x-axis-options font-sans" value="Size">Size</option>
+                    <option class="x-axis-options font-sans" value="Year">Year</option>
+                    <option class="x-axis-options font-sans" value="Month">Month</option>
+                    <option class="x-axis-options font-sans" value="Landslides">Landslides</option>
+                    <option class="x-axis-options font-sans" value="Injuries">Injuries</option>
+                    <option class="x-axis-options font-sans" value="Fatalities">Fatalities</option>
+                </select>
+            </div>
+            <div class="flex gap-5 items-center">
+                <label for="y-axis-select" class="text-lg">Choose Y Axis:</label>
+                <select class="border-2 border-indigo-500 focus:outline-indigo-500 transition ease-in-out hover:scale-105 p-2 rounded-md font-semibold" name="y-axis-select" id="y-axis-select">
+                    <option class="x-axis-options" value="Fatalities">Fatalities</option>
+                    <option class="x-axis-options" value="Injuries">Injuries</option>
+                    <option class="x-axis-options" value="Landslides">Landslides</option>
+                </select>
+            </div>
+            <div class="flex gap-5">
+                <p class="text-lg mb-5">Graph Type:</p>
+                <div class="flex items-start flex-col gap-2 items-center">
+                    <div>
+                        <input class="accent-violet-700" type="radio" id="line_graph" name="type_of_graph" value="line" checked>
+                        <label for="line_graph">Line Graph</label><br>
+                    </div>
+                    <div>
+                        <input class="accent-violet-700" type="radio" id="bar_graph" name="type_of_graph" value="bar">
+                        <label for="bar_graph">Bar Graph</label><br>
+                    </div>
+                </div>
+            </div>
+            <button id="sumbit-btn" class="w-28 btn bg-violet-700 p-3 rounded-md text-white font-semibold transition ease-in-out delay-50 hover:-translate-1 hover:scale-110 hover:bg-indigo-500 duration-100">Submit</button>
+        </div>
+    </div>
+    <script type="module" src="graph.js"></script>
+</body>
+</html>

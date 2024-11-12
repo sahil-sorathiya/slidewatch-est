@@ -1,0 +1,47 @@
+.continuous_rain{
+    background-color: #D43019;
+}
+
+.rain{
+    background-color: #ED8318;
+}
+
+.downpour{
+    background-color: #009447;
+}
+
+.unknown{
+    background-color: #221E1F;
+}
+
+.construction{
+    background-color: #981F21;
+}
+
+.monsoon{
+    background-color: #841782;
+}
+
+.mining{
+    background-color: #553366;
+}
+
+.snowfall_snowmelt{
+    background-color: #9C272C;
+}
+
+.tropical_cyclone{
+    background-color: #185567;
+}
+
+.other{
+    background-color: #F4B52A;
+}
+
+.flooding{
+    background-color: #1E9ED9;
+}
+
+.leaking_pipe{
+    background-color: #B94496;
+}

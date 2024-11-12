@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="./leaflet/leaflet.css" />
+    <link rel="stylesheet" href="./Leaflet.markercluster-1.4.1/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="./Leaflet.markercluster-1.4.1/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" href="./ExtraMarkers/dist/css/leaflet.extra-markers.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>EST Project</title>
+    <style>*{font-family: "Montserrat", sans-serif;}</style>
+</head>
+<body class="flex min-h-screen w-full">
+    <div id="map" class="map h-screen w-3/4"></div>
+    <div id="key" class="key w-1/4 border-l-2 border-slate-500">
+        <div class=" flex justify-between p-4 pl-5 text-start font-semibold bg-violet-700 text-white text-2xl content-center">
+            <p onclick="location.href='/index.html'" class="hover:scale-110 transition ease-in-out cursor-pointer">SlideWatch</p>
+            <butoon onclick="location.href='/index.html'" class="btn bg-white text-violet-700 py-1 px-2 rounded-md text-base cursor-pointer transition ease-in-out hover:scale-110">Home</button>
+        </div>
+        <label for="continuous_rain" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="continuous_rain" id="continuous_rain"><div class="color-div continuous_rain h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Continuous rain</p></label>
+        <label for="rain" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="rain" id="rain"><div class="color-div rain h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Rain</p></label>
+        <label for="downpour" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="downpour" id="downpour"><div class="color-div downpour h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Downpour</p></label>
+        <label for="unknown" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="unknown" id="unknown"><div class="color-div unknown h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Unknown</p></label>
+        <label for="construction" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="construction" id="construction"><div class="color-div construction h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Construction</p></label>
+        <label for="monsoon" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="monsoon" id="monsoon"><div class="color-div monsoon h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Monsoon</p></label>
+        <label for="mining" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="mining" id="mining"><div class="color-div mining h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Mining</p></label>
+        <label for="snowfall_snowmelt" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="snowfall_snowmelt" id="snowfall_snowmelt"><div class="color-div snowfall_snowmelt h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Snowfall snowmelt</p></label>
+        <label for="tropical_cyclone" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="tropical_cyclone" id="tropical_cyclone"><div class="color-div tropical_cyclone h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Tropical cyclone</p></label>
+        <label for="other" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="other" id="other"><div class="color-div other h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Other</p></label>
+        <label for="flooding" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="flooding" id="flooding"><div class="color-div flooding h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Flooding</p></label>
+        <label for="leaking_pipe" class="w-[90%] transition ease-in-out hover:scale-105 hover:translate-x-2 cursor-pointer flex text-center p-3 pl-6 gap-5 items-center"><input class="key-checkbox accent-violet-700" type="checkbox" checked name="leaking_pipe" id="leaking_pipe"><div class="color-div leaking_pipe h-2 w-20 rounded-md shadow-md shadow-slate-300"></div><p class="font-bold">Leaking pipe</p></label>
+        <div class="flex p-5 gap-5 key-btns ">
+            <button id="clear-btn" class="btn bg-violet-700 p-3 rounded-md text-white font-semibold transition ease-in-out delay-50 hover:-translate-1 hover:scale-110 hover:bg-indigo-500 duration-100">Clear All</button>
+            <button id="apply-btn" class="btn bg-violet-700 p-3 rounded-md text-white font-semibold transition ease-in-out delay-50 hover:-translate-1 hover:scale-110 hover:bg-indigo-500 duration-100">Apply All</button>
+        </div>
+    </div>
+<script src="https://kit.fontawesome.com/78eca28d52.js" crossorigin="anonymous"></script>
+<script src="./leaflet/leaflet.js"></script>
+<script src="./Leaflet.markercluster-1.4.1/dist/leaflet.markercluster.js"></script>
+<script src="./ExtraMarkers/dist/js/leaflet.extra-markers.min.js"></script>
+<script src="./PapaParse-5.0.2/papaparse.js"></script>
+<script type="module" src="data.js"></script>
+<script type="module" src="map.js"></script>
+</body>
+</html>
